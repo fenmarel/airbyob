@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'pry-rails'
-gem 'rspec-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -29,13 +28,26 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-gem 'bcrypt'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'debugger'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -43,5 +55,3 @@ gem 'bcrypt'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]

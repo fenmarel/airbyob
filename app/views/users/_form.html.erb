@@ -1,0 +1,43 @@
+<% form_action = action == :new ? users_url : user_url(user) %>
+<% form_method = action == :new ? 'POST' : 'PATCH' %>
+<% form_submit = action == :new ? 'Sign Up' : 'Update Info' %>
+<% form_password = action == :new ? 'Password' : 'Confirm Password' %>
+
+
+<form action="<%= form_action %>" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>" id="authenticity_token">
+
+  <input type="hidden" name="_method" value="<%= form_method %>" id="_method">
+
+  <label for="username">Username</label>
+  <input type="text" name="user[username]" value="<%= user.username %>" id="username">
+
+  <label for="email">Email</label>
+  <input type="text" name="user[email]" value="<%= user.email %>" id="email">
+
+  <label for="password"><%= form_password %></label>
+  <input type="password" name="user[password]" id="password">
+
+  <% if action == :new %>
+    <label for="password_confirmation">Password Confirmation</label>
+    <input type="password" name="user[password_confirmation]" id="password_confirmation">
+  <% end%>
+
+  <p><input type="submit" value="<%= form_submit %>"></p>
+</form>
+
+<% if action == :edit %>
+  <hr>
+  <form action="<%= user_url(user) %>" method="post" accept-charset="utf-8">
+    <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>" id="authenticity_token">
+
+    <input type="hidden" name="_method" value="delete" id="_method">
+
+    <label for="password"><%= form_password %></label>
+    <input type="password" name="user[password]" id="password">
+
+    <p><input type="submit" value="Delete My Account"></p>
+  </form>
+<% end %>
