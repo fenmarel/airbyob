@@ -56,5 +56,4 @@ production:
   encoding: unicode
   database: airbyob_production
   pool: 5
-  username: postgres
   password:
