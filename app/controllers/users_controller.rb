@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :verify_user, :only => [:edit, :update, :destroy]
+
   def create
     @user = User.new(user_params)
 
@@ -73,4 +75,8 @@ class UsersController < ApplicationController
     params[:user][:password] == params[:user][:password_confirmation]
   end
 
+  def verify_user
+    user = User.find(params[:id])
+    redirect_to user_url(current_user) unless current_user == user
+  end
 end

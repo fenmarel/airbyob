@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :password, :length => { :minimum => 6, :allow_nil => true }
   validates :password_digest, :session_token, :presence => true
 
+  has_many :sites
+
   def self.generate_token
     SecureRandom::urlsafe_base64(24)
   end

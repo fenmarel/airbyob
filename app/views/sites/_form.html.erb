@@ -1,0 +1,49 @@
+<% form_action = action == :new ? user_sites_url(user) : site_url(site) %>
+<% form_method = action == :new ? 'POST' : 'PATCH' %>
+<% form_submit = action == :new ? 'List Land' : 'Update Details' %>
+
+
+<form action="<%= form_action %>" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token"
+         value="<%= form_authenticity_token %>" id="authenticity_token">
+
+  <input type="hidden" name="_method" value="<%= form_method %>" id="_method">
+
+  <label for="title">Title</label>
+  <input type="text" name="site[title]" value="<%= site.title %>" id="title">
+
+  <label for="description">Description</label>
+  <input type="text" name="site[description]" value="<%= site.description %>" id="description">
+
+  <label for="location">Location</label>
+  <input type="text" name="site[location]" value="<%= site.location %>" id="location">
+
+  <label for="price">Price</label>
+  <input type="text" name="site[price]" value="<%= site.price %>" id="price">
+
+  <label for="size">Size</label>
+  <select name="site[size]" id="size">
+    <option value="1">&lt; 0.5 acres</option>
+    <option value="2">&lt; 1 acre</option>
+    <option value="3">&lt; 5 acres</option>
+    <option value="4">&lt; 10 acres</option>
+    <option value="5">&gt; 10 acres</option>
+  </select>
+
+  <p><input type="submit" value="<%= form_submit %>"></p>
+</form>
+
+<% if action == :edit %>
+  <hr>
+  <form action="<%= site_url(site) %>" method="post" accept-charset="utf-8">
+    <input type="hidden" name="authenticity_token"
+           value="<%= form_authenticity_token %>" id="authenticity_token">
+
+    <input type="hidden" name="_method" value="delete" id="_method">
+
+    <label for="password">Confirm Password</label>
+    <input type="password" name="user[password]" id="password">
+
+    <p><input type="submit" value="Delete Listing"></p>
+  </form>
+<% end %>
