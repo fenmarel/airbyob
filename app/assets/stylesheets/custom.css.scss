@@ -1,9 +1,46 @@
 @import 'bootstrap';
 
 body {
-  margin-top: 65px;
+  margin-top: 50px;
 }
 
 .container-fluid {
   margin-right: 1em;
+}
+
+.carousel-airbyob {
+  margin: auto;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img{
+  width: 100%;
+  margin: auto;
+}
+
+#root-container {
+  position: relative;
+}
+
+#root-search-form {
+  position: absolute;
+  top: 46%;
+  left: 15%;
+}
+
+.gray-well {
+  background: gray;
+  border: 3px solid gray;
+  border-radius: 3px;
+}
+
+.btn-root-form {
+  padding: 4px 4px 3px 4px;
+  margin: 0;
+}
+
+.form-control-inline {
+  @extend .form-control;
+  position: inline-block;
+  width: auto;
 }
