@@ -1,3 +1,33 @@
 // Place all the styles related to the Sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.site-picture {
+  width: 100%;
+  height: auto;
+}
+
+.book-btn, .fav-btn, .contact-btn {
+  width: 100%;
+}
+
+.owner-info {
+  text-align: center;
+}
+
+.owner-picture {
+  width: 100%;
+}
+
+.owner-link {
+  font-size: 2em;
+}
+
+.site-info {
+  margin-top: 1.5em;
+}
+
+#description, #amenities {
+  margin: 1em;
+}

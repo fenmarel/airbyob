@@ -63,6 +63,7 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.find(params[:id])
+    @owner = @site.owner
 
     render :show
   end
